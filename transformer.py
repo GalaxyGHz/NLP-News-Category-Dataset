@@ -117,7 +117,7 @@ for epoch in range(num_epochs):
         pred = model(input_ids=inputs, attention_mask=attention)
         pred = torch.nn.functional.softmax(pred.logits, dim=1)
 
-        # train_acc = int((torch.argmax(pred, dim=1) == torch.argmax(ground_truth, dim=1)).sum()) / batch["label"]
+        # acc = int((torch.argmax(pred, dim=1) == torch.argmax(ground_truth, dim=1)).sum()) / batch["label"]
 
         loss = torch.nn.functional.cross_entropy(pred, ground_truth)
 
